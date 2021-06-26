@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import { ListTagsService } from '../services/ListTagsService';
+import { ListTagService } from '../services/ListTagService';
 
-class ListTagsController {
+class ListTagController {
 
   async handle(resquest: Request, response: Response) {
-    const listTagsService = new ListTagsService();
+    const listTagsService = new ListTagService();
 
     const tags = await listTagsService.execute();
 
@@ -12,4 +12,4 @@ class ListTagsController {
   }
 }
 
-export { ListTagsController };
+export { ListTagController };
