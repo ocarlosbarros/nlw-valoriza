@@ -13,6 +13,7 @@ import "./database";
 //Cria uma instância do express chamada app
 const app = express();
 
+app.use(express.json());
 app.use(router);
 
 //Criando uma rota GET
