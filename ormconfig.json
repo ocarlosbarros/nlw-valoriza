@@ -1,4 +1,7 @@
 {
   "type":"sqlite",
-  "database": "src/database/nlw-valorizaDB.sqlite"
+  "database": "src/database/nlw-valorizaDB.sqlite",
+  "cli":{
+    "migrationsDir":"src/database/migrations"
+  }
 }
