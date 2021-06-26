@@ -6,7 +6,8 @@ class ListTagService {
   async execute() {
     const tagsRepository = getCustomRepository(TagRepository);
 
-    const tags = await tagsRepository.find();
+    let tags = await tagsRepository.find();
+    tags = tags.map((tag) => ({ ...tag, nameCustom: `#${tag.name}` }));
 
     return tags;
   }

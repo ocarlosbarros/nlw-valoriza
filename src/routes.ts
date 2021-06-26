@@ -22,7 +22,7 @@ router.post("/tags", ensureAuthenticated, ensureAdmin, createTagController.handl
 
 //Lista tags
 const listTagController = new ListTagController();
-router.get("/tags", listTagController.handle);
+router.get("/tags", ensureAuthenticated, listTagController.handle);
 
 
 
