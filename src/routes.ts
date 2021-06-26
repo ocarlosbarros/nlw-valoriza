@@ -1,6 +1,7 @@
 import { Router } from "express"
 import { CreateTagController } from "./controllers/CreateTagController";
 import { CreateUserController } from "./controllers/CreateUserController";
+import { ensureAdmin } from "./middlewares/ensureAdmin";
 
 
 const router = Router();
@@ -11,6 +12,6 @@ router.post("/users", createUserController.handle);
 
 //Casdastro de Tags
 const createTagController = new CreateTagController();
-router.post("/tags", createTagController.handle);
+router.post("/tags", ensureAdmin, createTagController.handle);
 
 export { router }
