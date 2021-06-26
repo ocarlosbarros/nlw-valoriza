@@ -6,12 +6,14 @@
 
 import express from "express";
 import "reflect-metadata";
-
+import { router } from "./routes";
 //Import config database
 import "./database";
 
 //Cria uma instância do express chamada app
 const app = express();
+
+app.use(router);
 
 //Criando uma rota GET
 /**
