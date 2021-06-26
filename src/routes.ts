@@ -3,6 +3,7 @@ import { AuthenticateUserController } from "./controllers/AuthenticateUserContro
 import { CreateComplimentController } from "./controllers/CreateComplimentController";
 import { CreateTagController } from "./controllers/CreateTagController";
 import { CreateUserController } from "./controllers/CreateUserController";
+import { ensureAuthenticated } from "./middlewares/ensure.authenticated";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
 
 
@@ -14,7 +15,7 @@ router.post("/users", createUserController.handle);
 
 //Cadastro de Tags
 const createTagController = new CreateTagController();
-router.post("/tags", ensureAdmin, createTagController.handle);
+router.post("/tags", ensureAuthenticated, ensureAdmin, createTagController.handle);
 
 //Login de Usuário
 const authenticateUserController = new AuthenticateUserController();
