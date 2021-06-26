@@ -3,7 +3,7 @@ import { AuthenticateUserController } from "./controllers/AuthenticateUserContro
 import { CreateComplimentController } from "./controllers/CreateComplimentController";
 import { CreateTagController } from "./controllers/CreateTagController";
 import { CreateUserController } from "./controllers/CreateUserController";
-import { ensureAuthenticated } from "./middlewares/ensure.authenticated";
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
 
 
@@ -23,6 +23,6 @@ router.post("/login", authenticateUserController.handle);
 
 //Cadastro de Compliment
 const createComplimentController = new CreateComplimentController();
-router.post("/compliments", createComplimentController.handle);
+router.post("/compliments", ensureAuthenticated, createComplimentController.handle);
 
 export { router }
